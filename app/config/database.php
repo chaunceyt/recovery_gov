@@ -6,8 +6,8 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
-		'password' => 'vibespin',
-		'database' => 'test_db',
+		'password' => 'password',
+		'database' => 'reportfiles',
 	);
 }
 ?>
