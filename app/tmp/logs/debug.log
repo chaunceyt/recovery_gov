@@ -1,0 +1,6 @@
+2009-09-07 14:15:47 Notice: Notice (1024): Please change the value of 'Security.salt' in app/config/core.php to a salt value specific to your application in [CORE/cake/libs/debugger.php, line 557]
+2009-09-07 14:16:55 Notice: Notice (1024): Please change the value of 'Security.salt' in app/config/core.php to a salt value specific to your application in [CORE/cake/libs/debugger.php, line 557]
+2009-09-07 14:22:23 Notice: Notice (1024): Please change the value of 'Security.salt' in app/config/core.php to a salt value specific to your application in [CORE/cake/libs/debugger.php, line 557]
+2009-09-07 15:23:55 Notice: Notice (8): Undefined variable: total_appropriation in [APP/views/reportfiles/view.ctp, line 58]
+2009-09-07 15:31:05 Notice: Notice (8): Undefined variable: total_obligations in [APP/views/reportfiles/view.ctp, line 60]
+2009-09-07 15:31:05 Notice: Notice (8): Undefined variable: total_disbursements in [APP/views/reportfiles/view.ctp, line 61]
