@@ -10,8 +10,14 @@ $scraper_url = 'http://www.recovery.gov/';
 
 $url = 'http://www.recovery.gov/?q=content/agency-weekly-reports';
 $response = file_get_contents($url,false,$context);
-preg_match_all('#<tr class=\'colgrey\'>(.+?)<\/tr>#is', $response, $tr);
-foreach($tr[1] as $td_data) {
+preg_match_all('#<tr class=\'colgrey\'>(.+?)<\/tr>#is', $response, $tr1);
+preg_match_all('#<tr class=\'colblue\'>(.+?)<\/tr>#is', $response, $tr2);
+$tr = array_merge($tr1[1], $tr2[1]);
+
+print_r($tr);
+
+
+foreach($tr as $td_data) {
     //echo $td_data;
     preg_match_all('#<td[^>]*>(.+?)<\/td>#is', $td_data, $td);
     //print_r($td[1]);
@@ -36,13 +42,20 @@ foreach($tr[1] as $td_data) {
             //print_r($report[1]);
             //print_r($tr[1]);
             foreach($tr[1] as $tr_str) { 
-                preg_match_all('#<a href="(.*?)">(.*?)<\/a>#is', $tr_str, $a);
+                preg_match_all('#<a href="(.*?)">(.*?)<\/a>#is', $tr_str, $a1);
+                preg_match_all('#<a href=\'(.*?)\'>(.*?)<\/a>#is', $tr_str, $a2);
                 $i=0;
+                $a = array_merge($a1, $a2);
+
                 foreach($a as $xls) {
                     //download the report xls file
                     if(preg_match('/sites\/default\/files/is', $xls[$i])) {
-                        $wget_cmd = 'wget http://www.recovery.gov/'.$xls[$i];
-                        passthru($wget_cmd);
+                        list($sites, $defaults, $files, $_filename) = explode('/',$xls[$i]);
+                        //echo $_filename ."\n";
+                        if(!file_exists($_filename)) {
+                            $wget_cmd = 'wget http://www.recovery.gov/'.$xls[$i];
+                            passthru($wget_cmd);
+                        }
                     }
                     $i++;
                 }
@@ -51,3 +64,4 @@ foreach($tr[1] as $td_data) {
         }
     }
 }
+
