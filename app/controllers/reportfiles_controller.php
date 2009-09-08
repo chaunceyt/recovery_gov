@@ -6,6 +6,12 @@ class ReportfilesController extends AppController {
 
 	function index() {
 		$this->Reportfile->recursive = 0;
+        if(isset($this->params['pass'][0])) {
+            $agency = $this->params['pass'][0];
+            $this->paginate['conditions'] = array('Reportfile.agency' => $agency);
+        }
+        $agencies = $this->Reportfile->getAgencyList();
+        $this->set('agencies', $agencies);
         $this->paginate['order'] = 'Reportfile.agency';
 		$this->set('reportfiles', $this->paginate());
 	}

@@ -33,5 +33,12 @@ class Reportfile extends AppModel {
 		)
 	);
 
+    public function getAgencyList()
+    {
+        $sql = "SELECT agency, count(*) as total from reportfiles group by agency";
+        $results = $this->query($sql);
+        return $results;
+    }
+
 }
 ?>
