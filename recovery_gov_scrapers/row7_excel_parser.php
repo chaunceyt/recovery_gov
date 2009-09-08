@@ -1,5 +1,6 @@
 #!/usr/bin/php -q
 <?php
+$path = dirname(__FILE__);
 require_once 'Excel/reader.php'; 
 error_reporting(E_ALL ^ E_NOTICE); 
 mysql_connect('localhost','root','vibespin');
@@ -18,7 +19,7 @@ function parseWeeklyReport($agency)
         $datetime = str_replace($_str_replace,'',$_filename);
     
 
-        $data->read("/home/cthorn/src/recovery_gov/".$file); 
+        $data->read($path.$file); 
         $sheet1 = $data->sheets[0]['cells'];
         $sheet2 = $data->sheets[1]['cells'];
 
