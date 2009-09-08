@@ -1,34 +1,28 @@
-CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC. Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+Simple frontend to view the data in the excel files submitted to Recovery.gov
+Each agency has a number of files available: http://www.recovery.gov/?q=content/agencies.
 
-The Cake Software Foundation - promoting development related to CakePHP
-http://www.cakefoundation.org/
+Example page where Excel files a listed
+http://www.recovery.gov/?q=content/agency-summary&agency_code=72
 
-CakePHP - the rapid development PHP framework
-http://www.cakephp.org
+check the recovery_gov_scraper folder for scrapers.
 
-Cookbook - user documentation for learning about CakePHP
-http://book.cakephp.org
+recovery_weekly.php - handles downloading the files
 
-API - quick reference to CakePHP
-http://api.cakephp.org
+row7_excel_parser.php - parses a number of agencies that use the same excel template.
 
-The Bakery - everything CakePHP
-http://bakery.cakephp.org
+Current  weeklyreport_WR*.xls files being parsed
 
-The Show - live and archived podcasts about CakePHP and more
-http://live.cakephp.org
+./row7_excel_parser.php usaid
+./row7_excel_parser.php doe
+./row7_excel_parser.php usaid
+./row7_excel_parser.php dot
+./row7_excel_parser.php va
+./row7_excel_parser.php fcc
+./row7_excel_parser.php nasa
+./row7_excel_parser.php nsf
+./row7_excel_parser.php sba
+./row7_excel_parser.php ssa
 
-CakePHP Google Group - community mailing list and forum
-http://groups.google.com/group/cake-php
 
-#cakephp on irc.freenode.net - chat with CakePHP developers
-irc://irc.freenode.net/cakephp
-
-CakeForge - open development for CakePHP
-http://cakeforge.org
-
-CakePHP gear
-http://www.cafepress.com/cakefoundation
-
-Recommended Reading
-http://astore.amazon.com/cakesoftwaref-20/
+This is work in progress - there may be data missing. If you catch it before I do
+let me know. 
