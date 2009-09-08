@@ -20,7 +20,7 @@ foreach ($reportfiles as $reportfile):
 	<tr>
 		<td>
 			<?php //echo $reportfile['Reportfile']['id']; ?>
-			<?php echo $html->link(__('View', true), array('action' => 'view', $reportfile['Reportfile']['id'])); ?>
+			<?php echo $html->link(__('View', true), array('action' => 'view', str_replace('/', '-',$reportfile['Reportfile']['file_name']))); ?>
 		</td>
 		<td>
 			<?php echo $reportfile['Reportfile']['file_name']; ?>

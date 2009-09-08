@@ -16,12 +16,17 @@ class ReportfilesController extends AppController {
 		$this->set('reportfiles', $this->paginate());
 	}
 
-	function view($id = null) {
+	function view($id = null) {       
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid Reportfile.', true));
 			$this->redirect(array('action'=>'index'));
+            exit;
 		}
-		$this->set('reportfile', $this->Reportfile->read(null, $id));
+        
+        $id = str_replace('-','/',$id);
+        $get_id = $this->Reportfile->findByFileName($id);
+        $_id = $get_id['Reportfile']['id'];
+		$this->set('reportfile', $this->Reportfile->read(null, $_id));
 	}
 
 	function add() {
