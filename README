@@ -8,6 +8,7 @@ check the recovery_gov_scraper folder for scrapers.
 
 recovery_weekly.php - handles downloading the files
 
+
 row7_excel_parser.php - parses a number of agencies that use the same excel template.
 
 Current  weeklyreport_WR*.xls files being parsed
@@ -26,3 +27,16 @@ Current  weeklyreport_WR*.xls files being parsed
 
 This is work in progress - there may be data missing. If you catch it before I do
 let me know. 
+
+to install frontend app
+
+cd /path/to/apache2/document/root/
+
+git clone git://github.com/chaunceyt/recovery_gov.git
+
+mysqladmin create reportfilesDB -uuser -p
+mysql reportfiles  < recovery_gov/app/config/sql/reportfiles.sql -uuser -p
+cd recovery_gov/app
+chmod -R 777 tmp/
+http://domain.com/recovery_gov/
+

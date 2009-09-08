@@ -1,3 +1,4 @@
+#!/usr/bin/php -q
 <?php
 $path = dirname(__FILE__);
 $DS = '/';
